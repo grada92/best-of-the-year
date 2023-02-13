@@ -8,6 +8,7 @@ import org.lessons.java.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -33,6 +34,19 @@ public class MainController {
 		model.addAttribute("songs", song);
 		return "songs";
 	}
+	
+	@GetMapping("/movies/{id}") 	
+	public String title(Model model, @PathVariable("id") String id ) {
+		model.addAttribute("title", getBestMovies().get(Integer.parseInt(id)-1));
+		return "titlemovie";
+	}
+	
+	@GetMapping("/songs/{id}") 	
+	public String titlesong(Model model, @PathVariable("id") String id ) {
+		model.addAttribute("title", getBestSongs().get(Integer.parseInt(id)-1));
+		return "titlesong";
+	}
+	
 	
 	private List<Movie> getBestMovies(){
 		List<Movie> movies = new ArrayList<>();

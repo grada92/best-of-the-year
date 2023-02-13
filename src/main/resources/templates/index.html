@@ -3,11 +3,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Pagina</title>
+<div th:replace="~{fragment :: head}"></div>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>Benvenuto nel mio sito web</h1>
-<span>Best of the year by</span> <span th:text="${name}"></span>
+<h1 class="text-center">Benvenuto nel mio sito web</h1>
+<div class="text-center">
 
-
+<span>Best of the year by</span> <span th:text="${name}" class="verde px-5"></span>
+</div>
+<div th:replace="~{fragment :: navbar('')}"></div>
+<div th:replace="~{fragment :: script}"></div>
 </body>
 </html>
